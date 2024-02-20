@@ -7,18 +7,20 @@ console.log(agePassenger);
 const kmPrice = 0.21;
 console.log(kmPrice);
 
-let discountPrice = '';
-console.log('prezzo scontato' , discountPrice);
 
-
-let totPrice = kmTravel * kmPrice - discountPrice;    
-console.log(totPrice);
+let totPrice = kmTravel * kmPrice;    
+console.log(totPrice); 
 
 if(agePassenger < 18){
-  discountPrice = totPrice - (totPrice * 20 / 100);
+  totPrice = totPrice - (totPrice * 20 / 100);
 }else if(agePassenger > 65){
-  discountPrice = totPrice - (totPrice * 40 / 100);
+  totPrice = totPrice - (totPrice * 40 / 100);
 }
-console.log(discountPrice);
 
+console.log(totPrice);
+
+document.getElementById('price').innerHTML = ` 
+<p>Il prezzo del tuo biglietto è di:
+${parseFloat(totPrice).toFixed(2)}&euro;</p>
+`;
 
